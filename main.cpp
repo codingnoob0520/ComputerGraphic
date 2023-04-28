@@ -1,60 +1,5 @@
 #include "main.h"
 #include"Module.hpp"
-const float cube[]{
-	//
-	-0.25f,  0.25f, -0.25f,
-   -0.25f, -0.25f, -0.25f,
-   0.25f, -0.25f, -0.25f,
-
-   0.25f, -0.25f, -0.25f,
-   0.25f,  0.25f, -0.25f,
-   -0.25f,  0.25f, -0.25f,
-   //
-   0.25f, -0.25f, -0.25f,
-   0.25f, -0.25f,  0.25f,
-   0.25f,  0.25f, -0.25f, 
-
-   0.25f, -0.25f,  0.25f, 
-   0.25f,  0.25f,  0.25f, 
-   0.25f,  0.25f, -0.25f,
-   //
-   0.25f, -0.25f,  0.25f, 
-   -0.25f, -0.25f,  0.25f, 
-   0.25f,  0.25f,  0.25f,
-
-   -0.25f, -0.25f,  0.25f, 
-   -0.25f,  0.25f,  0.25f, 
-   0.25f,  0.25f,  0.25f, 
-   //
-   -0.25f, -0.25f,  0.25f,
-   -0.25f, -0.25f, -0.25f, 
-   -0.25f,  0.25f,  0.25f, 
-
-   -0.25f, -0.25f, -0.25f,
-   -0.25f,  0.25f, -0.25f, 
-   -0.25f,  0.25f,  0.25f, 
-   //
-   -0.25f, -0.25f,  0.25f, 
-   0.25f, -0.25f,  0.25f,
-   0.25f, -0.25f, -0.25f, 
-
-   0.25f, -0.25f, -0.25f,
-   -0.25f, -0.25f, -0.25f, 
-   -0.25f, -0.25f,  0.25f, 
-   //
-   -0.25f,  0.25f, -0.25f, 
-   0.25f,  0.25f, -0.25f, 
-   0.25f,  0.25f,  0.25f, 
-
-   0.25f,  0.25f,  0.25f, 
-   -0.25f,  0.25f,  0.25f, 
-   -0.25f,  0.25f, -0.25f, 
-
-};
-unsigned int testIndex[]{
-	0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35
-};
-unsigned int test[] = { 0,1,3,2 };
 const char* vsSource = R"glsl(
 	#version 400
 	uniform mat4 projMatrix;
@@ -107,7 +52,7 @@ void myInit()
 	cout << "元件總數 " << PARTNUM << endl << endl;
 		
 		
-	Module test("armtop.obj", 0);
+	Module test("cube.obj", 0);
 	
 		
 	//0 for VBO //1 for EBO 
@@ -140,7 +85,7 @@ void My_Display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	float currentTime = glutGet(GLUT_ELAPSED_TIME) * 0.01f;
 	mat4 mv_matrix(1.0);
-	mv_matrix = rotate(mv_matrix, deg2rad(currentTime * 45.0f), vec3(0.0f, 0.0f, 1.0f));
+	//mv_matrix = rotate(mv_matrix, deg2rad(currentTime * 45.0f), vec3(0.0f, 0.0f, 1.0f));
 	//mv_matrix = translate(mv_matrix, vec3(1.0, 0.0, 0.0));
 	
 	
